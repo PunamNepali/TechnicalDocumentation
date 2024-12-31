@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=width-device , initialscale=1.0">
+<title>Technical Documentation Page</title>
+<!-- <link rel="stylesheet" href="/technicaldocumentationpage.css"> -->
+<link rel="stylesheet" href="/technicaldocumentationpage.css">
+  </head>
+  <body>
+    <nav id="navbar"> 
+      <header>React Documentation</header>
+      <ul>
+<li><a class="nav-link" href="#Introduction_to_React">Introduction to React</a></li>
+<li><a class="nav-link" href="#Getting_Started_with_React">Getting Started with React</a></li>
+<li><a class="nav-link" href="#Basic_React_Component">Basic React Component</a></li>
+<li><a class="nav-link" href="#Variables_and_State">Variables and State</a></li>
+<li><a class="nav-link"
+href="#State_in_Functional_Components">State in Functional Components<a>
+</li>
+<li><a class="nav-link" href="#State_in_Class_Components">
+State in Class Components</a></li>
+<li><a class="nav-link" href="#Lifecycle_Methods">Lifecycle Methods</a></li>
+<li><a class="nav-link" href="#Props">Props</a></li>
+<li><a class="nav-link" href="#Conditional_Rendering">Conditional Rendering</a></li>
+<li><a class="nav-link" href="#Lists_and_Keys">Lists and Keys</a></li>
+<li><a class="nav-link" href="#Handling_Events">Handling Events</a></li>
+<li><a class="nav-link" href="#Forms">Forms</a></li>
+<li><a class="nav-link" href="#Data_Fetching">Data Fetching</a></li>
+<li><a class="nav-link" href="#Summary">Summary</a></li>
+
+      </ul>
+    </nav>
+    <main id="main-doc">
+<section class="main-section" id="Introduction_to_React">
+  <header>Introduction to React</header>
+  <article>
+<p>
+React is a JavaScript library for building user    interfaces. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications.
+</p>
+
+<p>
+React allows developers to create large web applications that can update and render efficiently in response to data changes. It is designed to be fast, scalable, and simple. React components can be defined as classes or functions. Key features include:
+</p>
+<ul>
+  <li>
+React components: Components are the building blocks of a React application. They can be stateful or stateless and can be reused throughout an application. Components make it easy to split the UI into independent, reusable pieces.
+  </li>
+  <li>
+JSX: JSX is a syntax extension to JavaScript used with React to describe what the UI should look like. JSX might remind you of a template language, but it comes with the full power of JavaScript.
+  </li>
+  <li>
+Virtual DOM: React creates a virtual DOM to track changes and update the DOM efficiently. Instead of directly manipulating the DOM, React uses the virtual DOM to improve performance.
+  </li>
+  <li>
+One-way data binding: React uses one-way data binding, which means that data flows in one direction from parent to child components. This helps to maintain the integrity of data and makes debugging easier.
+  </li>
+</ul>
+</article>
+</section>
+<section class="main-section" 
+id="Getting_Started_with_React">
+<header>Getting Started with React</header>
+    <article>
+      <p>To get started with React, you first need to set up your development environment. You can use tools like [Create React App](https://reactjs.org/docs/create-a-new-react-app.html) to quickly bootstrap a new React project.</p>
+      <code>
+    npx create-react-app my-app
+    cd my-app
+    npm start
+          </code>
+    </article>
+    </section>
+    <section class="main-section" id="Basic_React_Component">
+<header>Basic React Component</header>
+    <article>
+      <p> In React, a component is a JavaScript function or class that optionally accepts inputs (called "props") and returns a React element that describes how a section of the UI should appear.</p>  
+      <p>Here’s a simple example of a functional component in React:
+</p>
+<ul>
+  <li>jsx
+import React from 'react';
+
+function Greeting(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+export default Greeting;
+</li>
+
+<p>In this example: </p>
+<li>
+  - `Greeting` is a functional component that takes `props` as an argument and returns a React element.
+</li>
+<li>
+  - `props.name` is used to dynamically display the name passed to the component.
+</li>
+</ul>
+
+<code>
+function Welcome(props) {
+return <h1>Hello, {props.name}</h1>;}
+</code>
+    <article>
+</section>
+<section class="main-section" id="Variables_and_State">
+<header>Variables and State</header>
+    <article>
+      <p>In React, components can manage their own state, which allows them to keep track of and respond to user inputs, interactions, and other changes.</p>
+    <article>  
+</section>
+        <section class="main-section" id="State_in_Functional_Components"><header>State in Functional Components</header>
+<article>
+  <p>
+   Functional components use the `useState` hook to manage state:
+  </p>
+  <ul>
+    <li>
+      jsx import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+
+export default Counter; 
+    </li>
+    <p>In this example:</p>
+    <li>- `useState` initializes the state variable `count` with `0` and provides a function `setCount` to update it.
+- The `onClick` event handler calls `setCount` to increment the count when the button is clicked.
+</li>
+    </ul>
+  </article>
+</section>
+  <section class="main-section" id="State_in_Class_Components"><header>State in Class Components</header>
+<article>
+<p>Class components use `this.state` and `this.setState` for state management:</p>
+<ul>
+  <li>jsx
+import React, { Component } from 'react';
+
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
+
+  render() {
+    return (
+      <div>
+        <p>You clicked {this.state.count} times</p>
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Click me
+        </button>
+      </div>
+    );
+  }
+}
+
+export default Counter;
+</li>
+<p>In this example:</p>
+<li>- The state is initialized in the constructor with `this.state`.</li>
+<li>- `this.setState` is used to update the state.</li>
+</ul>
+
+</article>  
+</section>
+
+   <section class="main-section" id="Lifecycle_Methods"><header> Lifecycle Methods</header>
+<article>
+  <p>Class components have lifecycle methods that allow you to run code at different stages of a component's lifecycle. Some common lifecycle methods include `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount`.
+</p>
+<p>Example:</p>
+<ul>
+  <li>jsx
+import React, { Component } from 'react';
+
+class MyComponent extends Component {
+  componentDidMount() {
+    // Code to run after the component mounts
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // Code to run after the component updates
+  }
+
+  componentWillUnmount() {
+    // Code to run before the component unmounts
+  } render() {
+    return <div>My Component</div>;
+  }
+}
+
+export default MyComponent;
+</li>
+</ul>
+</article>  
+</section>
+    <section class="main-section" id="Props"><header>Props</header>
+    <article>
+      <p>Props (short for properties) are used to pass data from parent components to child components. Props are immutable and cannot be changed by the child component.</p>
+      <p>Example:</p>
+      <ul>
+        <li>jsx
+import React from 'react';
+
+function Greeting(props) {
+  return <p>Hello, {props.name}!</p>;
+}
+
+function App() {
+  return <Greeting name="World" />;
+}
+
+export default App;
+</li>
+<p>In this example:</p>
+      <li>- `App` passes the `name` prop to the `Greeting` component.</li>
+      </ul>
+
+       <code>
+            const element = <Welcome name="Sara" />;
+          </code>
+    </article>
+</section>
+     <section class="main-section" id="Conditional_Rendering">
+<header>Conditional Rendering</header>
+     <article>
+       <p>You can conditionally render components or elements using JavaScript operators like `if`, ternary operators, or logical `&&`:
+</p>
+<ul>
+  <li>jsx
+import React from 'react';
+
+function Greeting(props) {
+  return (
+    <div>
+      {props.isLoggedIn ? <p>Welcome back!</p> : <p>Please sign up.</p>}
+    </div>
+  );
+}
+
+export default Greeting;</li>
+</ul>
+     </article>
+     </section>
+<section class="main-section" id="Lists_and_Keys">
+  <header>Lists and Keys</header>
+<article>
+  <p>You can render lists of elements in React by using the `map` function and providing a unique `key` for each element:</p>
+  <ul>
+    <code>jsx
+import React from 'react';
+
+function NumberList(props) {
+  const numbers = props.numbers;
+  const listItems = numbers.map((number) =>
+    <li key={number.toString()}>
+      {number}
+    </li>
+  );
+
+  return (
+    <ul>
+      {listItems}
+    </ul>
+  );
+}
+
+export default NumberList;</code>
+  </ul>
+</article>      
+</section>
+<section class="main-section" id="Handling_Events">
+  <header>Handling Events</header>
+<article>
+  <p>Handling events in React is similar to handling events in HTML, but with a few differences. React uses camelCase for event handlers and you pass a function as the event handler.
+</p>
+<p>Example:</p>
+  <ul>
+    <li>jsx
+import React from 'react';
+
+function Button() {
+  function handleClick() {
+    alert('Button was clicked');
+  }
+
+  return <button onClick={handleClick}>Click me</button>;
+}
+
+export default Button;</li>
+  </ul>
+  <code>
+            <button onclick="activateLasers()">
+              Activate Lasers
+            </button>
+          </code>
+</article>       
+</section>
+       <section class="main-section" id="Forms"><header>Forms</header>
+<article>
+  <p>Handling form inputs in React involves using state to manage the form values and updating the state on input changes:
+</p>
+<ul>
+  <li>jsx
+import React, { useState } from 'react';
+
+function Form() {
+  const [inputValue, setInputValue] = useState('');
+
+  function handleChange(event) {
+    setInputValue(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    alert('A name was submitted: ' + inputValue);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Name:
+        <input type="text" value={inputValue} onChange={handleChange} />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+export default Form;</li>
+</ul>
+</article>  
+</section>
+<section class="main-section" id="Data_Fetching"><header>
+  Data Fetching</header>
+<article>
+  <p>To fetch data from an API, you can use the `useEffect` hook in functional components or lifecycle methods in class components:
+</p>
+  <ul>
+    <li>jsx
+import React, { useState, useEffect } from 'react';
+
+function DataFetcher() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch('https://api.example.com/data')
+      .then(response => response.json())
+      .then(data => setData(data));
+  }, []); // Empty dependency array means this runs once when the component mounts
+
+  if (!data) return <div>Loading...</div>;
+
+  return <div>Data: {data.someValue}</div>;
+}
+
+export default DataFetcher;</li>
+  </ul>
+  </article>  
+</section>
+<section class="main-section" id="Summary"><header>Summary</header>
+<article>
+  <p>React provides a powerful way to build interactive UIs by breaking them into reusable components, managing state, handling events, and fetching data. By learning and using these fundamentals, you'll be well on your way to building robust React applications.
+</p>
+<p>For more detailed information, you can refer to the [official React documentation](https://reactjs.org/docs/getting-started.html).
+
+---</p>
+</article>
+</section>
+    </main>
+  </body>
+  </html>
